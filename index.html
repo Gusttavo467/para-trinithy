@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Trinithy 🤍</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: radial-gradient(circle at center, #3a0000, #000000);
+    font-family: 'Segoe UI', sans-serif;
+    overflow:hidden;
+    color:white;
+}
+
+.card{
+    background: rgba(0,0,0,0.65);
+    padding:50px;
+    border-radius:25px;
+    border:2px solid #ff1a4d;
+    box-shadow:0 0 20px #ff1a4d, 0 0 40px #ff1a4d;
+    text-align:center;
+    max-width:700px;
+    animation: brilho 2s infinite alternate;
+}
+
+@keyframes brilho{
+    from{
+        box-shadow:0 0 20px #ff1a4d, 0 0 40px #ff1a4d;
+    }
+    to{
+        box-shadow:0 0 35px #ff4d6d, 0 0 60px #ff4d6d;
+    }
+}
+
+h1{
+    font-size:3em;
+    margin-bottom:15px;
+    color:#ff4d6d;
+    text-shadow:0 0 10px #ff1a4d;
+}
+
+.nome{
+    font-size:2.2em;
+    margin-bottom:20px;
+    text-shadow:0 0 8px #ffffff;
+}
+
+p{
+    font-size:1.3em;
+    line-height:1.6;
+    color:#ffccd5;
+    margin-top:15px;
+}
+
+footer{
+    position:absolute;
+    bottom:15px;
+    font-size:0.9em;
+    color:#ff99aa;
+}
+
+/* corações */
+.heart{
+    position:fixed;
+    top:-10px;
+    color:#ff1a4d;
+    animation:cair linear forwards;
+}
+
+@keyframes cair{
+    to{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Para</h1>
+    <div class="nome">Trinithy 🤍</div>
+    <p id="frase"></p>
+    <p>Com carinho, alguém que valoriza muito sua amizade ✨</p>
+</div>
+
+<footer>
+    Feito especialmente para você 💌
+</footer>
+
+<script>
+const frases = [
+"Sou imensamente grato por ter você na minha vida.",
+"Sua amizade é um presente que guardo com muito carinho.",
+"Você ilumina meus dias de uma forma única.",
+"Obrigado por cada conversa e cada momento especial.",
+"Que nossa amizade continue brilhando para sempre."
+];
+
+document.getElementById("frase").innerText =
+frases[Math.floor(Math.random() * frases.length)];
+
+function criarCoracao(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(criarCoracao, 300);
+</script>
+
+</body>
+</html>
